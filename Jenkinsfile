@@ -12,7 +12,7 @@ pipeline{
         stage('cleaning the old file'){
             steps{
                 // Delete the old file
-                sh 'rm -rf /var/www/html/*'
+                sh 'sudo rm -rf /var/www/html/*'
             }
         }
 
@@ -23,7 +23,7 @@ pipeline{
             }
         }
 
-        stage('Build'){
+        stage('Build the application'){
             steps{
                 // Build the application
                 sh 'npm run build'
