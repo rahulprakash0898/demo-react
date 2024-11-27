@@ -12,8 +12,8 @@ pipeline{
         stage('cleaning the old file'){
             steps{
                 // Delete the old file
-                sh 'chmod -R 777 /var/www/html/'
-                sh 'rm -rf /var/www/html/*'
+                sh 'sudo chmod -R 777 /var/www/html/'
+                sh 'sudo rm -rf /var/www/html/*'
             }
         }
 
