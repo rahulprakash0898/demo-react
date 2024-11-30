@@ -9,13 +9,6 @@ pipeline{
             }
         }
 
-        stage('cleaning the old file'){
-            steps{
-                // Delete the old file
-                sh 'rm -rf /var/www/html/*'
-            }
-        }
-
         stage('installing the packages'){
             steps{
                 // Install the packages
@@ -30,10 +23,17 @@ pipeline{
             }
         }
 
+        stage('cleaning the old file'){
+            steps{
+                // Delete the old file
+                sh 'rm -rf /var/www/html/*'
+            }
+        }
+
         stage('copy build files to the web server'){
             steps{
                 // Copy the build files to the web server
-                sh 'cp -r build/* /var/www/html/'
+                sh 'cd build && cp -r * /var/www/html/'
             }
         }
     }
